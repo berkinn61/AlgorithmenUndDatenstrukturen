@@ -6,50 +6,50 @@ namespace DataStructureTest
 {
     public class Tests
     {
-        private SingleLinkedList list;
+        private SingleLinkedList<Person> list;
 
         [SetUp]
         public void Setup()
         {
-            list = new SingleLinkedList();
+            list = new SingleLinkedList<Person>();
         }
 
         [Test]
-        public void InsertPerson_ShouldInsertPersonInList()
+        public void AddPerson_ShouldAddPersonToList()
         {
-            Person person = new Person("Sophie", "Meier", "Weiblich", 28);
-            list.Add(person);
-            Assert.IsTrue(list.Contains(person), "Die Person sollte in der Liste enthalten sein.");
+            Person anna = new Person("Anna", "Schmidt", "Weiblich", 25);
+            list.Add(anna);
+            Assert.IsTrue(list.Contains(anna), "Die Person sollte in der Liste enthalten sein.");
         }
 
         [Test]
-        public void CheckPersonNotInList_ShouldReturnFalse()
+        public void ContainsPerson_WhenPersonNotInList_ShouldReturnFalse()
         {
-            Person person1 = new Person("Sophie", "Meier", "Weiblich", 28);
-            Person person2 = new Person("Lukas", "Fischer", "Männlich", 35);
-            list.Add(person1);
-            Assert.IsFalse(list.Contains(person2), "Die Person sollte nicht in der Liste enthalten sein.");
+            Person anna = new Person("Anna", "Schmidt", "Weiblich", 25);
+            Person ben = new Person("Ben", "Müller", "Männlich", 30);
+            list.Add(anna);
+            Assert.IsFalse(list.Contains(ben), "Die Person sollte nicht in der Liste enthalten sein.");
         }
 
         [Test]
-        public void CheckEmptyList_ShouldReturnFalse()
+        public void ContainsPerson_WhenListEmpty_ShouldReturnFalse()
         {
-            Person person = new Person("Sophie", "Meier", "Weiblich", 28);
-            Assert.IsFalse(list.Contains(person), "Die leere Liste sollte keine Person enthalten.");
+            Person anna = new Person("Anna", "Schmidt", "Weiblich", 25);
+            Assert.IsFalse(list.Contains(anna), "Die leere Liste sollte keine Person enthalten.");
         }
 
         [Test]
-        public void InsertMultiplePersons_ShouldContainAll()
+        public void AddMultiplePersons_ShouldContainAll()
         {
-            Person person1 = new Person("Sophie", "Meier", "Weiblich", 28);
-            Person person2 = new Person("Lukas", "Fischer", "Männlich", 35);
-            Person person3 = new Person("Emma", "Schulz", "Weiblich", 19);
-            list.Add(person1);
-            list.Add(person2);
-            list.Add(person3);
-            Assert.IsTrue(list.Contains(person1), "Person1 sollte in der Liste enthalten sein.");
-            Assert.IsTrue(list.Contains(person2), "Person2 sollte in der Liste enthalten sein.");
-            Assert.IsTrue(list.Contains(person3), "Person3 sollte in der Liste enthalten sein.");
+            Person anna = new Person("Anna", "Schmidt", "Weiblich", 25);
+            Person ben = new Person("Ben", "Müller", "Männlich", 30);
+            Person clara = new Person("Clara", "Weber", "Weiblich", 22);
+            list.Add(anna);
+            list.Add(ben);
+            list.Add(clara);
+            Assert.IsTrue(list.Contains(anna), "Anna sollte in der Liste enthalten sein.");
+            Assert.IsTrue(list.Contains(ben), "Ben sollte in der Liste enthalten sein.");
+            Assert.IsTrue(list.Contains(clara), "Clara sollte in der Liste enthalten sein.");
         }
     }
 }
