@@ -1,25 +1,15 @@
 ﻿using Common;
+using System;
 
-public class Node<T>
-{
-    public T Data { get; set; }
-    public Node<T> Next { get; set; }
-    public Node<T> Previous { get; set; }
-    public Node(T data)
-    {
-        Data = data;
-        Next = null;
-        Previous = null;
-    }
-}
-
-public class DoubleLinkedList<T>
+public class DoubleLinkedList<T> where T : IComparable<T>
 {
     private Node<T> head;
+    private Node<T> tail;
 
     public DoubleLinkedList()
     {
         head = null;
+        tail = null;
     }
 
     public void InsertBefore(T elementAfter, T elementToInsert)
@@ -27,7 +17,7 @@ public class DoubleLinkedList<T>
         Node<T> newNode = new Node<T>(elementToInsert);
         if (head == null)
         {
-            head = newNode;
+            head = tail = newNode;
             return;
         }
         if (head.Data.Equals(elementAfter))
@@ -59,7 +49,7 @@ public class DoubleLinkedList<T>
         Node<T> newNode = new Node<T>(elementToInsert);
         if (head == null)
         {
-            head = newNode;
+            head = tail = newNode;
             return;
         }
         Node<T> current = head;
@@ -75,8 +65,25 @@ public class DoubleLinkedList<T>
             {
                 current.Next.Previous = newNode;
             }
+            else
+            {
+                tail = newNode;
+            }
             current.Next = newNode;
         }
+    }
+
+    public void InsertLast(T elementToInsert)
+    {
+        Node<T> newNode = new Node<T>(elementToInsert);
+        if (head == null)
+        {
+            head = tail = newNode;
+            return;
+        }
+        tail.Next = newNode;
+        newNode.Previous = tail;
+        tail = newNode;
     }
 
     public int PosOfElement(T element)
@@ -93,5 +100,29 @@ public class DoubleLinkedList<T>
             position++;
         }
         return -1;
+    }
+
+    public void BubbleSort()
+    {
+        if (head == null || head.Next == null)
+            return;
+
+        bool swapped;
+        do
+        {
+            swapped = false;
+            Node<T> current = head;
+            while (current.Next != null)
+            {
+                if (current.Data.CompareTo(current.Next.Data) > 0)
+                {
+                    T temp = current.Data;
+                    current.Data = current.Next.Data;
+                    current.Next.Data = temp;
+                    swapped = true;
+                }
+                current = current.Next;
+            }
+        } while (swapped);
     }
 }
