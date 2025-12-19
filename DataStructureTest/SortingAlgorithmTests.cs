@@ -72,7 +72,7 @@ namespace DataStructureTests
             {
                 new Person("Ben", "Schmidt", "m", 30),
                 new Person("Clara", "Fischer", "w", 28),
-                new Person("Burak", "Sahin", "m", 17),
+                new Person("Berkin", "Filiz", "m", 17),
                 new Person("Anna", "Adler", "w", 28),
                 new Person("Tom", "Adler", "m", 28),
                 new Person("Zoe", "Adler", "w", 28)
@@ -196,7 +196,7 @@ namespace DataStructureTests
             {
                 new Person("Ben", "Schmidt", "m", 30),
                 new Person("Clara", "Fischer", "w", 28),
-                new Person("Burak", "Sahin", "m", 17),
+                new Person("Berkin", "Filiz", "m", 17),
                 new Person("Anna", "Adler", "w", 28),
                 new Person("Tom", "Adler", "m", 28),
                 new Person("Zoe", "Adler", "w", 28)
