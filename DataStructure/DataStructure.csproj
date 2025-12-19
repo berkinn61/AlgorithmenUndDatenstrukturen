@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoubleLinkedList.cs" />
     <Compile Include="EinfachVerketteteListe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -49,10 +48,6 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{95820b3d-f81f-4cbd-a5fd-3134adafc210}</Project>
       <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SortingAlgorithms\SortingAlgorithms.csproj">
-      <Project>{f84b1953-ced2-4186-8149-7d9e2faec53a}</Project>
-      <Name>SortingAlgorithms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
