@@ -1,111 +1,115 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Common;
-using SortingAlgorithms;
 
-public class SingleLinkedList<T> where T : IComparable<T>
+namespace DataStructure
 {
-    private Node<T> head;
-    private ISortAlgorithm<T> sortAlgorithm;
-    public SingleLinkedList()
+    public class Node<T>
     {
-        head = null;
-        sortAlgorithm = new BubbleSort<T>();
+        public T Data { get; set; }
+        public Node<T> Next { get; set; }
+        public Node(T data)
+        {
+            Data = data;
+            Next = null;
+        }
     }
 
-    public void Add(T data)
+    public class SingleLinkedList<T>
     {
-        Node<T> newNode = new Node<T>(data);
-        if (head == null)
+        private Node<T> head;
+        public SingleLinkedList()
         {
-            head = newNode;
+            head = null;
         }
-        else
+
+        public void Add(T data)
+        {
+            Node<T> newNode = new Node<T>(data);
+            if (head == null)
+            {
+                head = newNode;
+            }
+            else
+            {
+                Node<T> current = head;
+                while (current.Next != null)
+                {
+                    current = current.Next;
+                }
+                current.Next = newNode;
+            }
+        }
+
+        public bool Contains(T data)
         {
             Node<T> current = head;
-            while (current.Next != null)
+            while (current != null)
             {
+                if (current.Data.Equals(data))
+                {
+                    return true;
+                }
                 current = current.Next;
             }
-            current.Next = newNode;
+            return false;
         }
-    }
 
-    public bool Contains(T data)
-    {
-        Node<T> current = head;
-        while (current != null)
+        public void InsertBefore(T elementAfter, T elementToInsert)
         {
-            if (current.Data.Equals(data))
+            Node<T> newNode = new Node<T>(elementToInsert);
+            if (head != null && head.Data.Equals(elementAfter))
             {
-                return true;
-            }
-            current = current.Next;
-        }
-        return false;
-    }
-
-    public void InsertBefore(T elementAfter, T elementToInsert)
-    {
-        Node<T> newNode = new Node<T>(elementToInsert);
-        if (head != null && head.Data.Equals(elementAfter))
-        {
-            newNode.Next = head;
-            head = newNode;
-            return;
-        }
-        Node<T> current = head;
-        while (current != null && current.Next != null)
-        {
-            if (current.Next.Data.Equals(elementAfter))
-            {
-                newNode.Next = current.Next;
-                current.Next = newNode;
+                newNode.Next = head;
+                head = newNode;
                 return;
             }
-            current = current.Next;
-        }
-    }
-
-    public void InsertAfter(T elementBefore, T elementToInsert)
-    {
-        Node<T> newNode = new Node<T>(elementToInsert);
-        Node<T> current = head;
-        while (current != null)
-        {
-            if (current.Data.Equals(elementBefore))
+            Node<T> current = head;
+            while (current != null && current.Next != null)
             {
-                newNode.Next = current.Next;
-                current.Next = newNode;
-                return;
+                if (current.Next.Data.Equals(elementAfter))
+                {
+                    newNode.Next = current.Next;
+                    current.Next = newNode;
+                    return;
+                }
+                current = current.Next;
             }
-            current = current.Next;
         }
-        if (current == null)
-        {
-            var nodeToInsert = new Node<T>(elementToInsert);
-            nodeToInsert.Next = head;
-            head = nodeToInsert;
-        }
-    }
 
-    public int PosOfElement(T element)
-    {
-        Node<T> current = head;
-        int position = 0;
-        while (current != null)
+        public void InsertAfter(T elementBefore, T elementToInsert)
         {
-            if (current.Data.Equals(element))
+            Node<T> newNode = new Node<T>(elementToInsert);
+            Node<T> current = head;
+            while (current != null)
             {
-                return position;
+                if (current.Data.Equals(elementBefore))
+                {
+                    newNode.Next = current.Next;
+                    current.Next = newNode;
+                    return;
+                }
+                current = current.Next;
             }
-            current = current.Next;
-            position++;
         }
-        return -1;
-    }
 
-    public void Sort()
-    {
-        sortAlgorithm.Sort(head);
+        public int PosOfElement(T element)
+        {
+            Node<T> current = head;
+            int position = 0;
+            while (current != null)
+            {
+                if (current.Data.Equals(element))
+                {
+                    return position;
+                }
+                current = current.Next;
+                position++;
+            }
+            return -1;
+        }
     }
 }

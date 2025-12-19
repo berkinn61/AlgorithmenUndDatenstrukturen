@@ -7,9 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "DataStructure\DataStructure.csproj", "{F993DD6C-1053-4DC5-8966-C26869D24094}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructureTest", "DataStructureTest\DataStructureTest.csproj", "{83996433-3CC3-4D27-93DB-E464B8B108C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingAlgorithms", "SortingAlgorithms\SortingAlgorithms.csproj", "{F84B1953-CED2-4186-8149-7D9E2FAEC53A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructureTest", "DataStructureTest\DataStructureTest.csproj", "{83996433-3CC3-4D27-93DB-E464B8B108C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{83996433-3CC3-4D27-93DB-E464B8B108C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83996433-3CC3-4D27-93DB-E464B8B108C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83996433-3CC3-4D27-93DB-E464B8B108C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F84B1953-CED2-4186-8149-7D9E2FAEC53A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F84B1953-CED2-4186-8149-7D9E2FAEC53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F84B1953-CED2-4186-8149-7D9E2FAEC53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F84B1953-CED2-4186-8149-7D9E2FAEC53A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
