@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    public interface ISortAlgorithm<T>
+    public interface ISortStrategy<T> where T : IComparable<T>
     {
-        void Sort(Node<T> head);
+        void Sort(ISortableCollection<T> c);
     }
 }

@@ -88,8 +88,7 @@ public class SingleLinkedList<T> where T : IComparable<T>
         }
     }
 
-    public int PosOfElement(T element)
-    {
+    public int PosOfElement(T element)    {
         Node<T> current = head;
         int position = 0;
         while (current != null)
